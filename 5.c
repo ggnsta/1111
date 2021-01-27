@@ -3,22 +3,22 @@
 
 typedef unsigned char uint8_t;
 
-#define SET_COLUMN_ADDRESS_LSB        0x00 // младший байт столбца 0
-#define SET_COLUMN_ADDRESS_MSB        0x10 // старший байт столбца 0
-#define SET_PAGE_ADDRESS              0xB0 // страница 0(pa)
-#define SET_SEG_DIRECTION             0xA0 // нормальный порядок записи столбцов
-#define SET_COM_DIRECTION             0xC0 // нормальный порядок отображения строк
-#define SET_POWER_CONTROL             0x2F // Управление питанием. PC[0] – усилитель, PC[1] — регулятор, PC[2] — повторитель. 0 — отключено, 1 — включено
-#define SET_SCROLL_LINE               0x40 // Установка начальной линии скроллинга SL=0..63
-#define SET_VLCD_RESISTOR_RATIO       0x27 // Установка уровня внутреннего резисторного делителя PC = [0..7].Используется для управления контрастом.
-#define SET_ELECTRONIC_VOLUME_MSB     0x81 // Регулировка контраста. Двухбайтная команда. PM[5..0] PM = 0..63.
+#define SET_COLUMN_ADDRESS_LSB        0x00 // РјР»Р°РґС€РёР№ Р±Р°Р№С‚ СЃС‚РѕР»Р±С†Р° 0
+#define SET_COLUMN_ADDRESS_MSB        0x10 // СЃС‚Р°СЂС€РёР№ Р±Р°Р№С‚ СЃС‚РѕР»Р±С†Р° 0
+#define SET_PAGE_ADDRESS              0xB0 // СЃС‚СЂР°РЅРёС†Р° 0(pa)
+#define SET_SEG_DIRECTION             0xA0 // РЅРѕСЂРјР°Р»СЊРЅС‹Р№ РїРѕСЂСЏРґРѕРє Р·Р°РїРёСЃРё СЃС‚РѕР»Р±С†РѕРІ
+#define SET_COM_DIRECTION             0xC0 // РЅРѕСЂРјР°Р»СЊРЅС‹Р№ РїРѕСЂСЏРґРѕРє РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЃС‚СЂРѕРє
+#define SET_POWER_CONTROL             0x2F // РЈРїСЂР°РІР»РµРЅРёРµ РїРёС‚Р°РЅРёРµРј. PC[0] вЂ“ СѓСЃРёР»РёС‚РµР»СЊ, PC[1] вЂ” СЂРµРіСѓР»СЏС‚РѕСЂ, PC[2] вЂ” РїРѕРІС‚РѕСЂРёС‚РµР»СЊ. 0 вЂ” РѕС‚РєР»СЋС‡РµРЅРѕ, 1 вЂ” РІРєР»СЋС‡РµРЅРѕ
+#define SET_SCROLL_LINE               0x40 // РЈСЃС‚Р°РЅРѕРІРєР° РЅР°С‡Р°Р»СЊРЅРѕР№ Р»РёРЅРёРё СЃРєСЂРѕР»Р»РёРЅРіР° SL=0..63
+#define SET_VLCD_RESISTOR_RATIO       0x27 // РЈСЃС‚Р°РЅРѕРІРєР° СѓСЂРѕРІРЅСЏ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ СЂРµР·РёСЃС‚РѕСЂРЅРѕРіРѕ РґРµР»РёС‚РµР»СЏ PC = [0..7].РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ РєРѕРЅС‚СЂР°СЃС‚РѕРј.
+#define SET_ELECTRONIC_VOLUME_MSB     0x81 // Р РµРіСѓР»РёСЂРѕРІРєР° РєРѕРЅС‚СЂР°СЃС‚Р°. Р”РІСѓС…Р±Р°Р№С‚РЅР°СЏ РєРѕРјР°РЅРґР°. PM[5..0] PM = 0..63.
 #define SET_ELECTRONIC_VOLUME_LSB     0x0F
-#define SET_ALL_PIXEL_ON              0xA4 // Включение всех пикселей. 0 – отображение содержимого памяти, 1 – все пиксели включены (содержимое памяти сохраняется).
-#define SET_INVERSE_DISPLAY           0xA6 // Инверсный режим. 0 — нормальное отображение содержимого памяти, 1 — инверсное.
-#define SET_DISPLAY_ENABLE            0xAF // Отключение экрана. 0 — экран отключен, 1 — включен.
-#define SET_LCD_BIAS_RATIO            0xA2 // Смещение напряжения делителя: 0 – 1/9, 1 – 1/7.
-#define SET_ADV_PROGRAM_CONTROL0_MSB  0xFA // Расширенное управление. ТС — температурная компенсация 0 = -0.05, 1 = -0.11 % / °С;
-#define SET_ADV_PROGRAM_CONTROL0_LSB  0x90 // WC – циклический сдвиг столбцов 0 = нет, 1 = есть; WP –циклический сдвиг страниц 0 = нет, 1 = есть.
+#define SET_ALL_PIXEL_ON              0xA4 // Р’РєР»СЋС‡РµРЅРёРµ РІСЃРµС… РїРёРєСЃРµР»РµР№. 0 вЂ“ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РїР°РјСЏС‚Рё, 1 вЂ“ РІСЃРµ РїРёРєСЃРµР»Рё РІРєР»СЋС‡РµРЅС‹ (СЃРѕРґРµСЂР¶РёРјРѕРµ РїР°РјСЏС‚Рё СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ).
+#define SET_INVERSE_DISPLAY           0xA6 // РРЅРІРµСЂСЃРЅС‹Р№ СЂРµР¶РёРј. 0 вЂ” РЅРѕСЂРјР°Р»СЊРЅРѕРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РїР°РјСЏС‚Рё, 1 вЂ” РёРЅРІРµСЂСЃРЅРѕРµ.
+#define SET_DISPLAY_ENABLE            0xAF // РћС‚РєР»СЋС‡РµРЅРёРµ СЌРєСЂР°РЅР°. 0 вЂ” СЌРєСЂР°РЅ РѕС‚РєР»СЋС‡РµРЅ, 1 вЂ” РІРєР»СЋС‡РµРЅ.
+#define SET_LCD_BIAS_RATIO            0xA2 // РЎРјРµС‰РµРЅРёРµ РЅР°РїСЂСЏР¶РµРЅРёСЏ РґРµР»РёС‚РµР»СЏ: 0 вЂ“ 1/9, 1 вЂ“ 1/7.
+#define SET_ADV_PROGRAM_CONTROL0_MSB  0xFA // Р Р°СЃС€РёСЂРµРЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ. РўРЎ вЂ” С‚РµРјРїРµСЂР°С‚СѓСЂРЅР°СЏ РєРѕРјРїРµРЅСЃР°С†РёСЏ 0 = -0.05, 1 = -0.11 % / В°РЎ;
+#define SET_ADV_PROGRAM_CONTROL0_LSB  0x90 // WC вЂ“ С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі СЃС‚РѕР»Р±С†РѕРІ 0 = РЅРµС‚, 1 = РµСЃС‚СЊ; WP вЂ“С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі СЃС‚СЂР°РЅРёС† 0 = РЅРµС‚, 1 = РµСЃС‚СЊ.
 #define READ_Y_AXIS_DATA              0x1C
 #define READ_Z_AXIS_DATA              0x20
 
@@ -111,28 +111,28 @@ int main(void) {
     P1DIR |= BIT2;
     P1OUT &= ~BIT2;
 
-    P5DIR |= BIT7; // установка на выход RST
+    P5DIR |= BIT7; // СѓСЃС‚Р°РЅРѕРІРєР° РЅР° РІС‹С…РѕРґ RST
     P5OUT |= BIT7;
 
-    P7DIR |= BIT4; // установка на выход CS
+    P7DIR |= BIT4; // СѓСЃС‚Р°РЅРѕРІРєР° РЅР° РІС‹С…РѕРґ CS
 
     P5DIR |= BIT6;
-    P5OUT &= ~BIT6; // CD - команда
+    P5OUT &= ~BIT6; // CD - РєРѕРјР°РЅРґР°
 
-    P4SEL |= BIT1; // передача данных LCD_SIMO
+    P4SEL |= BIT1; // РїРµСЂРµРґР°С‡Р° РґР°РЅРЅС‹С… LCD_SIMO
     P4DIR |= BIT1;
 
-    P4SEL |= BIT3; // синхросигнал SCLK
+    P4SEL |= BIT3; // СЃРёРЅС…СЂРѕСЃРёРіРЅР°Р» SCLK
     P4DIR |= BIT3;
 
-    UCB1CTL1 = UCSSEL_2 | UCSWRST; // SMCLK, разрешение программного сброса
-    UCB1CTL0 = UCCKPH | UCMSB | UCMST | UCMODE_0 | UCSYNC; // фаза ти, порядок передачи - MSB, Master, 3-pin, синхронный режим
-    UCB1CTL1 &= ~UCSWRST; // разрешение работы модуля USCI
-    UCB1IFG &= ~UCRXIFG; //флаг прерывания приёмника
+    UCB1CTL1 = UCSSEL_2 | UCSWRST; // SMCLK, СЂР°Р·СЂРµС€РµРЅРёРµ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ СЃР±СЂРѕСЃР°
+    UCB1CTL0 = UCCKPH | UCMSB | UCMST | UCMODE_0 | UCSYNC; // С„Р°Р·Р° С‚Рё, РїРѕСЂСЏРґРѕРє РїРµСЂРµРґР°С‡Рё - MSB, Master, 3-pin, СЃРёРЅС…СЂРѕРЅРЅС‹Р№ СЂРµР¶РёРј
+    UCB1CTL1 &= ~UCSWRST; // СЂР°Р·СЂРµС€РµРЅРёРµ СЂР°Р±РѕС‚С‹ РјРѕРґСѓР»СЏ USCI
+    UCB1IFG &= ~UCRXIFG; //С„Р»Р°Рі РїСЂРµСЂС‹РІР°РЅРёСЏ РїСЂРёС‘РјРЅРёРєР°
 
     writeCommand(initMacro, 13);
 
-    P7DIR |= BIT6; // питание подсветки
+    P7DIR |= BIT6; // РїРёС‚Р°РЅРёРµ РїРѕРґСЃРІРµС‚РєРё
     P7SEL &= ~BIT6;
     P7OUT |= BIT6;
 
@@ -198,20 +198,20 @@ __interrupt void accelerometerInterrupt(void) {
 
 void CMA3000_init(void) {
 
-    P2DIR  &= ~BIT5;//сигнал прерывания
+    P2DIR  &= ~BIT5;//СЃРёРіРЅР°Р» РїСЂРµСЂС‹РІР°РЅРёСЏ
     P2OUT  |=  BIT5;
     P2REN  |=  BIT5;
     P2IE   |=  BIT5;
     P2IES  &= ~BIT5;
     P2IFG  &= ~BIT5;
 
-    P3DIR  |=  BIT5; //выбор устройства CSB
+    P3DIR  |=  BIT5; //РІС‹Р±РѕСЂ СѓСЃС‚СЂРѕР№СЃС‚РІР° CSB
     P3OUT  |=  BIT5;
 
     P2DIR  |=  BIT7;
     P2SEL  |=  BIT7;    // UCA0CLK
 
-    P3DIR  |= (BIT3 | BIT6);    // режим SIMO и напряжение питания PWM
+    P3DIR  |= (BIT3 | BIT6);    // СЂРµР¶РёРј SIMO Рё РЅР°РїСЂСЏР¶РµРЅРёРµ РїРёС‚Р°РЅРёСЏ PWM
     P3DIR  &= ~BIT4;        // SOMI
     P3SEL  |= (BIT3 | BIT4);    // P3.3 - UCA0SIMO , P3.4 - UCA0SOMI
     P3OUT  |= BIT6;
@@ -220,10 +220,10 @@ void CMA3000_init(void) {
     UCA0CTL0 = UCCKPH & ~UCCKPL | UCMSB | UCMST | UCSYNC | UCMODE_0;
     UCA0CTL1 &= ~UCSWRST;
 
-    // холостое чтение из REVID
+    // С…РѕР»РѕСЃС‚РѕРµ С‡С‚РµРЅРёРµ РёР· REVID
     CMA3000_writeCommand(0x04, 0);
-                                                                                                                                                                         __delay_cycles(1250);
-    // запись в CTRL
+   __delay_cycles(1250);
+    // Р·Р°РїРёСЃСЊ РІ CTRL
     CMA3000_writeCommand(0x0A, BIT7 | BIT4 | BIT2 | BIT1);
 }
 
