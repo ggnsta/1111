@@ -198,12 +198,12 @@ __interrupt void accelerometerInterrupt(void) {
 
 void CMA3000_init(void) {
 
-    P2DIR  &= ~BIT5;//сигнал прерывания
+    P2DIR  &= ~BIT5;// mode: input
     P2OUT  |=  BIT5;
-    P2REN  |=  BIT5;
-    P2IE   |=  BIT5;
-    P2IES  &= ~BIT5;
-    P2IFG  &= ~BIT5;
+    P2REN  |=  BIT5;// enable pull up resistor
+    P2IE   |=  BIT5;// interrupt enable
+    P2IES  &= ~BIT5;// process on interrupt's front
+    P2IFG  &= ~BIT5;// clear interrupt flag
 
     P3DIR  |=  BIT5; //выбор устройства CSB
     P3OUT  |=  BIT5;
@@ -214,11 +214,11 @@ void CMA3000_init(void) {
     P3DIR  |= (BIT3 | BIT6);    // режим SIMO и напряжение питания PWM
     P3DIR  &= ~BIT4;        // SOMI
     P3SEL  |= (BIT3 | BIT4);    // P3.3 - UCA0SIMO , P3.4 - UCA0SOMI
-    P3OUT  |= BIT6;
+    P3OUT  |= BIT6;// Power cma3000
 
     UCA0CTL1 = UCSSEL_2 | UCSWRST;
     UCA0CTL0 = UCCKPH & ~UCCKPL | UCMSB | UCMST | UCSYNC | UCMODE_0;
-    UCA0CTL1 &= ~UCSWRST;
+    UCA0CTL1 &= ~UCSWRST;// enable USCI
 
     // холостое чтение из REVID
     CMA3000_writeCommand(0x04, 0);
