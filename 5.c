@@ -229,7 +229,7 @@ void CMA3000_init(void) {
 
 uint8_t CMA3000_writeCommand(uint8_t firstByte, uint8_t secondByte) {
     char indata;
-    P3OUT &= ~BIT5;
+    P3OUT &= ~BIT5;// enable cma3000 SPI data transfer
     P2IE &= ~BIT5;
 
     indata = UCA0RXBUF;
